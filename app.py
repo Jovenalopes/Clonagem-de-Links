@@ -774,7 +774,11 @@ def redirect_short(short_id):
     # If masking is enabled, show masking page
     return render_template_string(MASK_PAGE_HTML, target_url=target, short_id=short_id)
 
-    if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+   import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # pega a porta do Render ou usa 5000 localmente
+    app.run(host="0.0.0.0", port=port)
+
 
 
